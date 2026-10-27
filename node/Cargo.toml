@@ -1,0 +1,12 @@
+[package]
+name = "fs_kit_node"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+_fs_kit = { package = "fs_kit", path = "..", default-features = false }
+napi = { version = "2", default-features = false, features = ["napi8"] }
+napi-derive = "2"

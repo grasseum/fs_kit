@@ -1,0 +1,19 @@
+[package]
+name = "fs_kit"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "_fs_kit"
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["python"]
+python = ["dep:pyo3"]
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+regex = "1.12.4"
+itertools = "0.12"
+pyo3 =  { version = "0.22", features = ["extension-module"], optional = true }
+

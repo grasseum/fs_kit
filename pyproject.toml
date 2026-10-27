@@ -1,0 +1,17 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "fs-kit"
+version = "0.1.0"
+description = "Cross-language filesystem path matching utilities"
+readme = "README.md"
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.maturin]
+features = ["python"]
+module-name = "_fs_kit"
