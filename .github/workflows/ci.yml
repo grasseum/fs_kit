@@ -23,6 +23,7 @@ jobs:
       - name: Build wheel
         run: maturin build --release --out dist
       - name: Install wheel
+        shell: bash
         run: python -m pip install dist/*.whl
       - name: Run Python tests
         run: python -m pytest
@@ -45,6 +46,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build native addon
+        env:
+          RUSTFLAGS: ${{ matrix.os == 'macos-latest' && '-C link-arg=-undefined -C link-arg=dynamic_lookup' || '' }}
         run: npm run build
       - name: Run Node.js tests
         run: npm test

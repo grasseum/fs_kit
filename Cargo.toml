@@ -16,9 +16,3 @@ tokio = { version = "1", features = ["full"] }
 regex = "1.12.4"
 itertools = "0.12"
 pyo3 =  { version = "0.22", features = ["extension-module"], optional = true }
-
-[target.x86_64-apple-darwin]
-rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]
-
-[target.aarch64-apple-darwin]
-rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]
