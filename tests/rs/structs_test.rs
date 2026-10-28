@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use _fs_kit::structs::{FileInfo, PathActionType};
+    use _fskit_lib::structs::{FileInfo, PathActionType};
 
     #[test]
     fn path_action_type_supports_equality_and_clone() {

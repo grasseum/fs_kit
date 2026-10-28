@@ -52,7 +52,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "fs_kit"
+name = "fskit_lib"
 version = "0.1.0"
 dependencies = [
  "itertools",

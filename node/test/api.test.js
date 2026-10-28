@@ -4,13 +4,13 @@ const { tmpdir } = require("node:os");
 const { join } = require("node:path");
 const { test } = require("node:test");
 
-const { getValidateDir } = require("..");
+const { glob } = require("..");
 
-test("getValidateDir returns an empty array for empty input", () => {
-  assert.deepEqual(getValidateDir([]), []);
+test("glob returns an empty array for empty input", () => {
+  assert.deepEqual(glob([]), []);
 });
 
-test("getValidateDir returns matching subfolders", () => {
+test("glob returns matching subfolders", () => {
   const root = mkdtempSync(join(tmpdir(), "fs-kit-node-test-"));
   const originalDirectory = process.cwd();
   mkdirSync(join(root, "alpha"));
@@ -18,7 +18,7 @@ test("getValidateDir returns matching subfolders", () => {
 
   try {
     process.chdir(root);
-    const result = getValidateDir(["./**"]);
+    const result = glob(["./**"]);
 
     assert.deepEqual(
       result.map((entry) => entry.name).sort(),

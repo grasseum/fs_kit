@@ -9,4 +9,4 @@ export interface FileInfo {
   info: string
   symlink: string
 }
-export declare function getValidateDir(dirs: Array<string>): Array<FileInfo>
+export declare function glob(dirs: Array<string>): Array<FileInfo>

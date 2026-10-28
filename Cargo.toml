@@ -1,10 +1,10 @@
 [package]
-name = "fs_kit"
+name = "fskit_lib"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "_fs_kit"
+name = "_fskit_lib"
 crate-type = ["cdylib", "rlib"]
 
 [features]

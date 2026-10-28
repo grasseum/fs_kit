@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use _fs_kit::core_dir::{get_current_lib_dir, get_directory_map};
+    use _fskit_lib::core_dir::{get_current_lib_dir, get_directory_map};
     use std::env;
     use std::fs;
     use std::sync::Mutex;

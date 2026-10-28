@@ -1,7 +1,7 @@
 
 #[cfg(test)] // Compiles this module ONLY when running 'cargo test'
 mod tests {
-    use _fs_kit::envs::{normalize_path};
+    use _fskit_lib::envs::{normalize_path};
     use super::*; // Brings process_username and private_validator into scope
     
     #[test]

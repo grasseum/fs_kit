@@ -1,5 +1,5 @@
 {
-  "name": "fs-kit-node",
+  "name": "fskit-lib-node",
   "version": "0.1.0",
   "main": "index.js",
   "types": "index.d.ts",

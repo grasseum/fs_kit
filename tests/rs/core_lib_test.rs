@@ -1,8 +1,8 @@
 
 #[cfg(test)]
 mod tests {
-    use _fs_kit::core_lib::{schema_segment, schema_struture, get_validate_dir};
-    use _fs_kit::structs::{PathActionType, FileInfo};
+    use _fskit_lib::core_lib::{schema_segment, schema_struture, get_validate_dir};
+    use _fskit_lib::structs::{PathActionType, FileInfo};
 
     use std::env;
     use std::fs;

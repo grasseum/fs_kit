@@ -22,9 +22,8 @@ pub fn glob(patterns: &Bound<'_, PyAny>) -> PyResult<Vec<structs::FileInfo>> {
 
 #[cfg(feature = "python")]
 #[pymodule]
-fn _fs_kit(module: &Bound<'_, PyModule>) -> PyResult<()> {
+fn _fskit_lib(module: &Bound<'_, PyModule>) -> PyResult<()> {
 	module.add_class::<structs::FileInfo>()?;
 	module.add_function(wrap_pyfunction!(glob, module)?)?;
-	module.add_function(wrap_pyfunction!(core_lib::get_validate_dir, module)?)?;
 	Ok(())
 }

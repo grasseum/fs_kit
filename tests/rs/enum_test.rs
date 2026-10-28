@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use _fs_kit::enums::{StringInput};
+    use _fskit_lib::enums::{StringInput};
 
 
 

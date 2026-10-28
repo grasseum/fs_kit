@@ -9,8 +9,8 @@ pub struct FileInfo {
     pub symlink: String,
 }
 
-#[napi(js_name = "getValidateDir")]
-pub fn get_validate_dir(dirs: Vec<String>) -> Vec<FileInfo> {
+#[napi(js_name = "glob")]
+pub fn glob(dirs: Vec<String>) -> Vec<FileInfo> {
     validate_directories(dirs)
         .into_iter()
         .map(|entry| FileInfo {

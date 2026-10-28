@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use _fs_kit::mapper::{char_loopup, char_vector_loopup, map_vector_loopup};
+    use _fskit_lib::mapper::{char_loopup, char_vector_loopup, map_vector_loopup};
 
     #[test]
     fn char_loopup_stops_at_end_character() {
