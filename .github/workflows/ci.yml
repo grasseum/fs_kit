@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  python:
+    name: Python package
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run Rust tests
+        run: cargo test --no-default-features
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build and test tools
+        run: python -m pip install --upgrade pip maturin pytest
+      - name: Clean previous wheels
+        run: python -c "from pathlib import Path; [wheel.unlink() for wheel in Path('dist').glob('*.whl')]"
+      - name: Build wheel
+        run: maturin build --release --out dist
+      - name: Install wheel
+        shell: bash
+        run: python -m pip install dist/*.whl
+      - name: Run Python tests
+        run: python -m pytest
+
+  npm:
+    name: npm package
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: node
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Build native addon
+        env:
+          RUSTFLAGS: ${{ matrix.os == 'macos-latest' && '-C link-arg=-undefined -C link-arg=dynamic_lookup' || '' }}
+        run: npm run build
+      - name: Run Node.js tests
+        run: npm test

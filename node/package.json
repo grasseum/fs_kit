@@ -1,0 +1,19 @@
+{
+  "name": "fskit-lib-node",
+  "version": "0.1.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "index.*.node"
+  ],
+  "scripts": {
+    "build": "napi build --platform --release",
+    "test": "node --test",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.4"
+  }
+}
