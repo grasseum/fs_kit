@@ -27,7 +27,7 @@ pub fn normalize_path(line: &str) -> String {
     clean_path
 }
 
-pub fn normalize_path_impl(path: &str, target_os: &str) -> String {
+fn normalize_path_impl(path: &str, target_os: &str) -> String {
     let mut fin_path = path.to_string();
     let re1_win_path = Regex::new(r"\\{2,}").unwrap();
     let re1_lin_path = Regex::new(r"/{2,}").unwrap();
