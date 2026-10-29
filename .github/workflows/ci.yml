@@ -20,6 +20,8 @@ jobs:
           python-version: "3.12"
       - name: Install build and test tools
         run: python -m pip install --upgrade pip maturin pytest
+      - name: Clean previous wheels
+        run: python -c "from pathlib import Path; [wheel.unlink() for wheel in Path('dist').glob('*.whl')]"
       - name: Build wheel
         run: maturin build --release --out dist
       - name: Install wheel
