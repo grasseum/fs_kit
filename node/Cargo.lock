@@ -65,7 +65,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "fs_kit"
+name = "fskit_lib"
 version = "0.1.0"
 dependencies = [
  "itertools",
@@ -74,10 +74,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "fs_kit_node"
+name = "fskit_lib_node"
 version = "0.1.0"
 dependencies = [
- "fs_kit",
+ "fskit_lib",
  "napi",
  "napi-derive",
 ]

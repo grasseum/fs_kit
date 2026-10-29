@@ -3,7 +3,7 @@ requires = ["maturin>=1.7,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "fskit-lib"
+name = "fskit_lib"
 version = "0.1.0"
 description = "Cross-language filesystem path matching utilities"
 readme = "README.md"

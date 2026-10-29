@@ -1,4 +1,4 @@
-use _fs_kit::core_lib::get_validate_dir as validate_directories;
+use _fskit_lib::core_lib::get_validate_dir as validate_directories;
 use napi_derive::napi;
 
 #[napi(object)]
